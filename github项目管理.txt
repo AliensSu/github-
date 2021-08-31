@@ -1,0 +1,28 @@
+1.创建SSH密钥：
+	ssh-keygen
+  一直回车，生成ssh密钥
+2.找到id_rsd.pub，用记事本打开，复制内容
+3.在github上选择settings,点击SSH and GPG keys,再点击New SSH key，将上面复制的内容填入密钥框内，点击 add SSH key
+
+4.返回GitHub仓库，找到对应子仓库的SSH路径，复制
+
+5.在目录中创建新的 Git 本地仓库
+	git init
+5.增加上传仓库地址
+	git remote add origin "SSH路径"
+更改上传仓库地址
+	git remote set-url origin +SSH路径
+6.查看仓库地址
+	git remote -v
+7.查看文件状态是否更新
+	git status
+8.将内容写入暂存区
+	git add .
+9.将暂存区内容添加到本地仓库中
+	git commit -m "备注"
+10.正式提交
+	git push origin master
+
+注：如果出现 error: failed to push some refs to 'github.com:xxx.git'，是因为没有同步remind.md文件到本地目录中，需要执行一下指令
+	 git pull --rebase origin master
+	 git push -u origin master
